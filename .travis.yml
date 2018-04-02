@@ -1,0 +1,35 @@
+sudo: true
+service: docker
+language: ruby
+cache:
+- bundler
+before_install:
+- sudo iptables -L DOCKER || ( echo "DOCKER iptables chain missing" ; sudo iptables
+  -N DOCKER )
+- gem install bundler -v 1.15
+install:
+- bundle install
+rvm:
+- 2.3.0
+- 2.4.1
+notifications:
+  email:
+    recipients:
+    - sensu-plugin@sensu-plugins.io
+    on_success: change
+    on_failure: always
+script:
+- gem build sensu-plugins-routeros.gemspec
+- gem install sensu-plugins-routeros-*.gem
+- bundle exec rake quick
+- bundle exec rake kitchen:ruby-`echo $TRAVIS_RUBY_VERSION | sed -e "s/\.//g"`-debian-8
+deploy:
+  provider: rubygems
+  api_key:
+    secure: y8q8IMirOJpbgHQu7maOJFr8wfwBqLno46SeBZiCCP75tvsCsShIFfUHHFEDyhae4gxnRGRRc57K/5WYBinEjZczzpHmyDZD5HlNB5q9r4DcOc6BMg9KvjoU5eaU2s3Boz6of9sfLo++nTH8e9ydRrd37K8H/Y/gdqYEhuU0Ikzn6aU+O079VOz/6vjHK16492qH3K51cBjfSp+klYe95FkbBQkvAE85LiEhVhQ/K4OUpNxwu8fwx2HaTb9UdmBHYJXfyQ5iM5apFD8ehgiXGHNsjftsGBIpkXvu/R0jq0Pb26VAfGXo+tBCoxEAyMN4HemALXih9n14S0C3gQC+AmzMOTbzd4GHURIlngi7LVO5rmjiie7InvJkOXBc7B0IneQIcGv0mjXLy1zUQetWrU/PsB3V0nz/Y6TfUAAG2uM4LhudTw6uggRc5uiFwMIQcK2z6odnE2wtQA9FJ6c2knB4K1B6lYjRpL0ShHKJuCcmJpq2IK7kpn0NOc5A7q29b7kNZH1ae5AktDAWtChgSRc5S8/dD1NIZF0z1r4kri0SsAeWZoVb308wvKZblhNuRcj438telAd52Il8eAfYj2OVkkd8ep3EVUlgtwu/LTswZYQ5n0eZ3RsFTScWFZYrBdqJVSfSAEGhBclQe6+mRmfMr/JtxV8VbyZSABzqU/M=
+  gem: sensu-plugins-routeros
+  on:
+    tags: true
+    all_branches: true
+    rvm: 2.4.1
+    repo: sensu-plugins/sensu-plugins-routeros

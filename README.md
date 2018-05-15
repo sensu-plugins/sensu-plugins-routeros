@@ -1,8 +1,8 @@
-## Sensu-Plugins-skel
+## Sensu-Plugins-RouterOS
 
-[![Build Status](https://travis-ci.org/sensu-plugins/sensu-plugins-skel.svg?branch=master)](https://travis-ci.org/sensu-plugins/sensu-plugins-skel)
-[![Gem Version](https://badge.fury.io/rb/sensu-plugins-skel.svg)](http://badge.fury.io/rb/sensu-plugins-skel)
-[![Dependency Status](https://gemnasium.com/sensu-plugins/sensu-plugins-skel.svg)](https://gemnasium.com/sensu-plugins/sensu-plugins-skel)
+[![Build Status](https://travis-ci.org/sensu-plugins/sensu-plugins-routeros.svg?branch=master)](https://travis-ci.org/sensu-plugins/sensu-plugins-routeros)
+[![Gem Version](https://badge.fury.io/rb/sensu-plugins-routeros.svg)](http://badge.fury.io/rb/sensu-plugins-routeros)
+[![Dependency Status](https://gemnasium.com/sensu-plugins/sensu-plugins-routeros.svg)](https://gemnasium.com/sensu-plugins/sensu-plugins-routeros)
 [![Community Slack](https://slack.sensu.io/badge.svg)](https://slack.sensu.io/badge)
 
 ## Files

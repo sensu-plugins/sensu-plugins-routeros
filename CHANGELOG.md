@@ -4,8 +4,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This CHANGELOG follows the format located [here](https://github.com/sensu-plugins/community/blob/master/HOW_WE_CHANGELOG.md)
 
 ## [Unreleased]
+
+## [0.1.0] - 2018-05-23
 ### Added
-- shell script check-upgrade.sh
+- shell script check-upgrade.sh (@x70b1)
 
 ## [0.0.1] - 2018-05-02
 ### Security
@@ -21,5 +23,6 @@ This CHANGELOG follows the format located [here](https://github.com/sensu-plugin
 - Rubocop config
 - basic testing setup
 
-[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-routeros/compare/0.0.1...HEAD
+[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-routeros/compare/0.1.0...HEAD
+[0.1.0]: https://github.com/sensu-plugins/sensu-plugins-routeros/compare/0.0.1...0.1.0
 [0.0.1]: https://github.com/sensu-plugins/sensu-plugins-routeros/compare/42104a9443c472f5f96a028535488f4b5d3efe88...0.0.1

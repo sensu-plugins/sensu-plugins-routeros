@@ -1,24 +1,41 @@
-# Sensu Plugin Skeleton
+## Sensu-Plugins-RouterOS
 
-All the files you'll need to start your own plugin written in Ruby [for Sensu](https://github.com/sensu/sensu), the monitoring framework.
+[![Build Status](https://travis-ci.org/sensu-plugins/sensu-plugins-routeros.svg?branch=master)](https://travis-ci.org/sensu-plugins/sensu-plugins-routeros)
+[![Gem Version](https://badge.fury.io/rb/sensu-plugins-routeros.svg)](http://badge.fury.io/rb/sensu-plugins-routeros)
+[![Dependency Status](https://gemnasium.com/sensu-plugins/sensu-plugins-routeros.svg)](https://gemnasium.com/sensu-plugins/sensu-plugins-routeros)
+[![Community Slack](https://slack.sensu.io/badge.svg)](https://slack.sensu.io/badge)
 
-## Useful to Me?
+## Files
 
-* Copy the files in this repository if you want to write a Ruby plugin following best practices of layout and structure
-* To write the actual functionality, you'll need to import [Sensu Plugin gem](https://github.com/sensu-plugins/sensu-plugin)
-* If you'd prefer writing in Python, use the [Python Plugin library](https://github.com/sensu-plugins/sensu-plugin-python)
-* Regardless of the chosen language, prepare the plugin to be released as a Ruby gem for optimal portability (example: [MongoDB has Ruby and Python code](https://github.com/sensu-plugins/sensu-plugins-mongodb/tree/master/bin))
+* bin/check-upgrade.sh
 
-## Checklist
+## Usage
 
-To release your own plugin, complete the following:
+* sh **check_routeros-upgrade.sh** *snmp* *HOST* [*PORT*] [*COMMUNITY*] [*RELEASE-TREE*]
+* sh **check_routeros-upgrade.sh** *ssh* *HOST* [*PORT*] [*USER*] [*RELEASE-TREE*]
 
-- [ ] Double check that another plugin doesn't already do what you need by [searching the Sensu Plugins organization](https://github.com/sensu-plugins)
-- [ ] Copy the files here into your own repository following the naming convention of `sensu-plugins-$FOO`
-- [ ] Delete or move this file and rename `README-skel.md` to `README.md`
-- [ ] Write your own checks, handlers or mutators using the plugin library of your choice
-- [ ] Push them to your own GitHub repository
-- [ ] Release them as a Ruby gem for optimal portability within the Sensu 1.x framework
-- [ ] Ask for feedback from your peers by sharing it on in the #contributing channel on [Sensu Community Slack](http://slack.sensu.io)
-- [ ] When you're ready to share further, offer to share it with broader community [by transferring it to Sensu Plugins organization](https://github.com/sensu-plugins/community/blob/master/TRANSFERRING_REPOS.md)
-- [ ] If you end up loving maintaining your plugin, [volunteer to be an org maintainer](https://github.com/sensu-plugins/community#how-you-can-help)
+The default values for SNMP are:
+* PORT=161
+* COMMUNITY=public
+
+For a check over SSH:
+* PORT=22
+* USER=user
+
+You need an user and SSH keys. There is no option for a password.
+
+**[RELEASE TREE]**
+
+Different settings are available. The default is `stable`. Choose wise.
+
+* stable
+* bugfix
+* release-candidate
+
+**ENV ROUTEROS_UPDATEURL**
+
+If you want to save the update information on your own server you can use `export ROUTEROS_UPDATEURL` to overwrite the default `https://download.mikrotik.com/routeros`.
+
+## Installation
+
+[Installation and Setup](http://sensu-plugins.io/docs/installation_instructions.html)
